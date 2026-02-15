@@ -1,33 +1,50 @@
 let apples = 0;
+
 let farmers = 0;
-let farmerCost = 50;
+let trees = 0;
+let factories = 0;
 
 const appleText = document.getElementById("apples");
-const appleBtn = document.getElementById("apple");
-const buyFarmerBtn = document.getElementById("buyFarmer");
-const farmerText = document.getElementById("farmers");
 
-appleBtn.onclick = () => {
+document.getElementById("apple").onclick = () => {
   apples++;
   updateUI();
 };
 
-buyFarmerBtn.onclick = () => {
-  if (apples >= farmerCost) {
-    apples -= farmerCost;
+function buyFarmer() {
+  if (apples >= 50) {
+    apples -= 50;
     farmers++;
-    farmerCost = Math.floor(farmerCost * 1.5);
-    buyFarmerBtn.innerText = `Buy (${farmerCost} 🍎)`;
     updateUI();
   }
-};
+}
+
+function buyTree() {
+  if (apples >= 250) {
+    apples -= 250;
+    trees++;
+    updateUI();
+  }
+}
+
+function buyFactory() {
+  if (apples >= 1000) {
+    apples -= 1000;
+    factories++;
+    updateUI();
+  }
+}
 
 setInterval(() => {
-  apples += farmers;
+  apples += farmers * 1;
+  apples += trees * 5;
+  apples += factories * 20;
   updateUI();
 }, 1000);
 
 function updateUI() {
-  appleText.innerText = `Apples: ${apples}`;
-  farmerText.innerText = farmers;
+  appleText.innerText = `${apples} Apples`;
+  document.getElementById("farmers").innerText = farmers;
+  document.getElementById("trees").innerText = trees;
+  document.getElementById("factories").innerText = factories;
 }
