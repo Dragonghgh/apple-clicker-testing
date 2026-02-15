@@ -8,18 +8,44 @@
 </head>
 <body>
 
-  <h1>🍎 Apple Clicker</h1>
-  <p id="apples">Apples: 0</p>
+<div class="game">
 
-  <img src="assets/apple.png" id="apple" alt="Apple">
-
-  <div class="upgrade">
-    <h2>🧑‍🌾 Apple Farmer</h2>
-    <p>Produces 1 apple per second</p>
-    <button id="buyFarmer">Buy (50 🍎)</button>
-    <p>Farmers owned: <span id="farmers">0</span></p>
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <h1>🍎 Apple Clicker</h1>
+    <h2 id="apples">0 Apples</h2>
+    <img src="assets/apple.png" id="apple">
   </div>
 
-  <script src="script.js"></script>
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <h2>Upgrades</h2>
+
+    <div class="upgrade">
+      <h3>🧑‍🌾 Apple Farmer</h3>
+      <p>+1 apple / sec</p>
+      <button onclick="buyFarmer()">Buy (50)</button>
+      <span>Owned: <b id="farmers">0</b></span>
+    </div>
+
+    <div class="upgrade">
+      <h3>🌳 Apple Tree</h3>
+      <p>+5 apples / sec</p>
+      <button onclick="buyTree()">Buy (250)</button>
+      <span>Owned: <b id="trees">0</b></span>
+    </div>
+
+    <div class="upgrade">
+      <h3>🏭 Apple Factory</h3>
+      <p>+20 apples / sec</p>
+      <button onclick="buyFactory()">Buy (1000)</button>
+      <span>Owned: <b id="factories">0</b></span>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
